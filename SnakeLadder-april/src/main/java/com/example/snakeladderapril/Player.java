@@ -31,7 +31,7 @@ public class Player {
             TranslateTransition secondMove = null;
 
             int newPosition = gameBoard.getNewPosition(currentPosition);
-            if (newPosition != currentPosition && newPosition != -1){
+            if (newPosition != currentPosition || newPosition != -1){
                 currentPosition = newPosition;
                 secondMove = translateAnimation(6);
             }
@@ -51,16 +51,16 @@ public class Player {
 //        coin.setTranslateY(y);
 
     }
-    public TranslateTransition translateAnimation(int diceValue){
-        TranslateTransition animate = new TranslateTransition(Duration.millis(2000),coin);
+    private TranslateTransition translateAnimation(int diceValue){
+        TranslateTransition animate = new TranslateTransition(Duration.millis(200*diceValue),coin);
         animate.setToX(gameBoard.getXCoordinate(currentPosition));
         animate.setToY(gameBoard.getYCoordinate(currentPosition));
         animate.setAutoReverse(false);
         return animate;
     }
     public void startingPosition(){
-        currentPosition = 0;
-        movePlayer(1);
+        currentPosition = 1;
+        movePlayer(0);
     }
     boolean isWinner(){
         if (currentPosition == 100)

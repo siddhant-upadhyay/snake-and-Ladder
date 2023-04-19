@@ -66,13 +66,14 @@ public class Board {
     }
     int getXCoordinate(int position){
         if (position>=1 && position<=100) {
-            positonCoordinate.get(position).getKey();
+            return positonCoordinate.get(position).getKey();
+
         }
         return -1;
     }
     int getYCoordinate(int position){
         if (position>=1 && position<=100) {
-            positonCoordinate.get(position).getValue();
+            return positonCoordinate.get(position).getValue();
         }
         return -1;
     }
